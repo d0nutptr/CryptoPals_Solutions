@@ -24,3 +24,17 @@ def decrypt(key: bytes, ciphertext: bytes, mode: Mode, params=None):
         return cipher.decrypt(ciphertext)
     else:
         return None
+
+
+def has_ecb_properties(ciphertext: bytes, blocksize: int = 16) -> bool:
+    blocks = []
+
+    for i in range(len(ciphertext) // blocksize):
+        block = ciphertext[i * blocksize: (i + 1) * blocksize]
+
+        if block in blocks:
+            return True
+        else:
+            blocks.append(block)
+
+    return False

@@ -3,7 +3,7 @@ from CryptoPals.crypto import xor
 from CryptoPals import utils
 from binascii import unhexlify, hexlify
 
-file = open("4.txt")
+file = open("input.txt")
 
 scored_strings = []
 
